@@ -8,6 +8,10 @@
             <JsonLayout complete="true" compact="true" eventEol="true" properties="true"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
+                <DeleteAction basePath="logs/" maxDepth="1">
+                    <IfFileName glob="app-*.log" />
+                    <IfLastModified age="7d" />
+                </DeleteAction>
             </Policies>
         </RollingFile>
     </Appenders>
